@@ -1,0 +1,12 @@
+/* Browser preview only: pages as spreads. Loaded after Paged.js layout, so it never reaches the PDF. */
+@media screen {
+    body { background: #5f6368; }
+    .pagedjs_pages {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(var(--pagedjs-width) * 2);
+        margin: 12mm auto;
+    }
+    .pagedjs_page { background: white; box-shadow: 0 1px 6px rgba(0, 0, 0, .45); margin-bottom: 10mm; }
+    .pagedjs_first_page { margin-left: var(--pagedjs-width); }
+}

@@ -1,0 +1,83 @@
+# Volume 3 of the OrcaSlicer Wiki set. Generated from the mkdocs.yml nav; edit freely.
+# Links to pages in the other volumes print as (Vol. N).
+
+title = "OrcaSlicer"
+subtitle = "Tools and Development"
+volume = 3
+wiki = "../../OrcaSlicer_WIKI"
+
+[layout]
+chapter_start = "fit"   # new page only when less than chapter_min_space of the page is left
+chapter_min_space = 0.33
+
+[[part]]
+title = "Speed Dial"
+pages = [
+    "speed_dial",
+]
+
+[[part]]
+title = "Publishing 3MF"
+pages = [
+    "publish_3mf",
+    "publish_3mf_creators",
+]
+
+[[part]]
+title = "Plugins"
+pages = [
+    "plugins_getting_started",
+    "plugins_local",
+    "plugins_management",
+    "plugins_cloud",
+    "plugins_types",
+]
+
+[[part]]
+title = "Command Line Interface"
+pages = [
+    "cli_actions",
+    "cli_mode",
+    "cli_transform",
+    "cli_misc",
+]
+
+[[part]]
+title = "Developer Reference"
+pages = [
+    "localization_guide",
+    "localization_glossary",
+    "built_in_placeholders_variables",
+    "how_to_build",
+    "how_to_build_windows",
+    "how_to_build_macos",
+    "how_to_build_linux",
+    "compiler_caching",
+    "how_to_create_profiles",
+    "how_to_test",
+    "how_to_wiki",
+    "plater_sidebar_tab_combobox",
+    "preset_and_bundle",
+    "slicing_hierarchy",
+    "plugin_system",
+    "plugin_development",
+    "registry",
+    "host",
+    "host_ui",
+    "script",
+    "printer_agent",
+    "slicing",
+    "plugin_audit_hook",
+]
+
+# Release notes left out of the printed set; uncomment to include.
+# [[part]]
+# title = "Releases"
+# pages = [
+#     "releases_index",
+#     "release_2_4_2",
+#     "release_2_4_1",
+#     "release_2_4_0",
+#     "release_2_4_0_beta",
+#     "release_2_4_0_alpha",
+# ]

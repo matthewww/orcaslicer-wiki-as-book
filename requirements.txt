@@ -1,0 +1,6 @@
+Markdown==3.11
+playwright==1.63.0
+Pygments==2.21.0
+pymdown-extensions==12.1
+pypdf==6.19.0
+segno==1.6.6

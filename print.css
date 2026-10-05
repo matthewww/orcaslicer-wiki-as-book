@@ -1,0 +1,258 @@
+/* Book print stylesheet, laid out by Paged.js.
+   Page size, margins, base font size and chapter breaks are injected by build.py. */
+
+:root {
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Source Sans 3", "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+    --ink: #1b1b1b;
+    --muted: #707070;
+    --rule: #c9c9c9;
+    --tint: #f2f2ef;
+    --accent: #00796b;
+}
+
+/* ---------- Running heads and folios ---------- */
+
+/* Paged.js renders margin boxes as plain divs, so style them directly */
+.pagedjs_margin-content {
+    font-family: var(--sans);
+    font-size: 7pt;
+    color: var(--muted);
+    letter-spacing: .06em;
+    font-variant-numeric: lining-nums;
+}
+@page :left {
+    @top-left { content: string(part); text-transform: uppercase; }
+    @bottom-left { content: counter(page); }
+}
+@page :right {
+    @top-right { content: string(chapter); text-transform: uppercase; }
+    @bottom-right { content: counter(page); }
+}
+
+/* Pages with no heads: cover, front matter, part dividers, chapter openers, blanks */
+@page front { @top-left { content: none } @top-right { content: none } @bottom-left { content: none } @bottom-right { content: none } }
+@page part { @top-left { content: none } @top-right { content: none } @bottom-left { content: none } @bottom-right { content: none } }
+@page chapter:first { @top-left { content: none } @top-right { content: none } }
+@page :blank { @top-left { content: none } @top-right { content: none } @bottom-left { content: none } @bottom-right { content: none } }
+
+/* ---------- Base text ---------- */
+
+html {
+    font-family: var(--serif);
+    color: var(--ink);
+    line-height: 1.34;
+    hyphens: auto;
+    font-variant-numeric: oldstyle-nums proportional-nums;
+}
+body { margin: 0; }
+p { margin: 0 0 .45em; orphans: 2; widows: 2; }
+strong { font-weight: 600; }
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--sans);
+    font-weight: 600;
+    line-height: 1.2;
+    hyphens: manual;
+    break-after: avoid;
+    break-inside: avoid;
+}
+h2 { font-size: 1.28em; margin: 1.1em 0 .35em; padding-bottom: .15em; border-bottom: .5pt solid var(--rule); }
+h3 { font-size: 1.1em; margin: .95em 0 .25em; }
+h4, h5 { font-size: 1em; margin: .8em 0 .2em; }
+
+ul, ol { margin: 0 0 .5em; padding-left: 1.25em; }
+li { margin: .06em 0; }
+li > p { margin: .2em 0; }
+li::marker { color: var(--muted); }
+
+hr { border: 0; border-top: .5pt solid var(--rule); margin: 1.2em 0; }
+
+a { color: inherit; text-decoration: none; }
+a.ext { text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: .5pt; text-underline-offset: 1.5pt; }
+a.xref { color: var(--accent); }
+a.legend { font-family: var(--sans); font-size: .9em; color: var(--muted); }  /* option labels: [Mode] [Type] ... */
+a.xref::after {
+    content: "\2009(p.\2009" target-counter(attr(href), page) ")";
+    font-family: var(--sans);
+    font-size: .78em;
+    color: var(--muted);
+}
+
+/* ---------- Code ---------- */
+
+code {
+    font-family: var(--mono);
+    font-size: .82em;
+    font-variant-numeric: normal;
+    background: var(--tint);
+    padding: .05em .25em;
+    border-radius: 1.5pt;
+    hyphens: none;
+}
+pre, .highlight pre {
+    font-size: .76em;
+    line-height: 1.38;
+    background: var(--tint);
+    border-left: 1pt solid var(--rule);
+    padding: 2.2mm 3mm;
+    margin: .6em 0 .9em;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+pre code { background: none; padding: 0; font-size: 1em; }
+
+/* ---------- Images and figures ---------- */
+
+/* layout.js marks figures with .fig; everything else (icons) stays inline */
+img { max-width: 100%; display: inline-block; vertical-align: middle; }
+/* Figures: block, centred, capped so one image can't eat a page */
+img.fig {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: var(--img-max);
+    margin: 1.5mm auto 2mm;
+    break-inside: avoid;
+}
+
+/* Narrow figures sit beside the text (layout.js decides which) */
+img.float { float: right; max-width: 48%; margin: .6mm 0 1.5mm 3.5mm !important; }
+h2, h3, .chapter-head { clear: both; }
+.float-box { display: flow-root; }  /* a block grows to hold its float */
+
+/* Consecutive figures share a row */
+.figs { display: flex; gap: 2.5mm; align-items: center; justify-content: center; margin: 1.5mm 0 2mm; break-inside: avoid; }
+.figs img { flex: 1 1 0; min-width: 0; width: 0; height: auto; max-height: var(--img-max); object-fit: contain; margin: 0 !important; }
+
+/* Videos: small thumbnail, caption and QR in one compact row */
+.video-card {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin: 1.5mm 0 2mm;
+    font-family: var(--sans);
+    font-size: .8em;
+    line-height: 1.3;
+    color: var(--muted);
+    break-inside: avoid;
+}
+.video-card > a { flex: none; width: 28mm; }
+.video-card > a img { width: 100% !important; height: auto; max-height: none; margin: 0 !important; }
+.video-text { flex: 1; color: var(--ink); }
+.video-url { color: var(--muted); font-size: .9em; }
+.qr { flex: none; line-height: 0; }
+.qr svg { width: 13mm; height: 13mm; }
+.qr-inline { float: right; margin: 0 0 1mm 2mm; }
+.qr-inline svg { width: 10mm; height: 10mm; }
+
+.mermaid { text-align: center; margin: .8em 0; break-inside: avoid; }
+/* layout.js turns each diagram into one image; cap it so it always fits on a page */
+.mermaid img { display: block; margin: 0 auto; max-width: 100%; height: auto; max-height: var(--text-h); object-fit: contain; }
+
+/* ---------- Tables ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: .82em;
+    line-height: 1.3;
+    margin: .8em 0 1em;
+    hyphens: auto;
+}
+thead { display: table-header-group; }
+th { text-align: left; font-weight: 600; border-bottom: .8pt solid var(--ink); padding: 1mm 1.6mm; vertical-align: bottom; }
+td { border-bottom: .3pt solid var(--rule); padding: .9mm 1.6mm; vertical-align: top; }
+tr { break-inside: avoid; }
+td img { max-height: 30mm; }
+
+/* ---------- Callouts (GitHub alerts / admonitions) ---------- */
+
+.admonition {
+    --c: var(--muted);
+    margin: .6em 0;
+    padding: 1.3mm 2.5mm .3mm;
+    border-left: 1.1mm solid var(--c);
+    background: color-mix(in srgb, var(--c) 7%, white);
+    font-size: .94em;
+}
+.admonition-title {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: .82em;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--c);
+    margin-bottom: .25em;
+}
+.admonition.note, .admonition.info { --c: #1f5fbf; }
+.admonition.tip { --c: #1a7f37; }
+.admonition.important { --c: #7a44c8; }
+.admonition.warning { --c: #9a6200; }
+.admonition.caution, .admonition.danger { --c: #c4262e; }
+
+/* ---------- Cover and front matter ---------- */
+
+.cover, .imprint, .toc { page: front; }
+.cover { padding-top: 32%; }
+.cover img { width: 22mm; height: auto; margin: 0 0 8mm; display: block; }
+.cover h1 { font-size: 3em; margin: 0; letter-spacing: -.01em; string-set: part content(text); }
+.cover .subtitle { font-family: var(--sans); font-size: 1.5em; color: var(--accent); margin: .2em 0 0; }
+.cover .source { font-family: var(--sans); font-size: .85em; color: var(--muted); margin-top: 30%; }
+
+.imprint { break-before: page; padding-top: 70%; font-size: .8em; color: var(--muted); }
+
+.toc { break-before: right; }
+.toc h1 { font-size: 1.8em; margin: 6mm 0 6mm; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc a { display: flex; align-items: baseline; }
+.toc a::after { content: target-counter(attr(href), page); font-family: var(--sans); font-variant-numeric: lining-nums tabular-nums; }
+.toc .t { flex: 1; display: flex; align-items: baseline; }
+.toc .t::after { content: ""; flex: 1; border-bottom: .6pt dotted var(--rule); margin: 0 1.5mm .25em; }
+.toc .n { width: 6mm; flex: none; font-family: var(--sans); color: var(--accent); }
+.toc-part { font-family: var(--sans); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; font-size: .85em; margin: 4mm 0 1.2mm; }
+.toc-part a::after { content: none; }
+.toc-part .t::after { content: none; }
+.toc-ch { margin: 1.2mm 0 .4mm; font-weight: 600; }
+.toc-sec { padding-left: 6mm; font-size: .9em; color: #3a3a3a; margin: .3mm 0; }
+
+/* ---------- Parts and chapters ---------- */
+
+.part { page: part; break-before: right; padding-top: 38%; }
+.part-num { font-family: var(--sans); text-transform: uppercase; letter-spacing: .14em; color: var(--accent); margin: 0; }
+.part-title { font-size: 2.4em; margin: .2em 0 0; string-set: part content(text); }
+.part + .chapter { break-before: right; }
+
+.chapter { page: chapter; }
+.chapter-num {
+    font-family: var(--sans);
+    font-size: .85em;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--accent);
+    margin: 0 0 .5mm;
+}
+.chapter-head { break-inside: avoid; break-after: avoid; }
+.chapter { padding-top: 7mm; clear: both; }
+.part + .chapter, .toc + .chapter { padding-top: 10mm; }
+h1.chapter-title {
+    font-size: 1.85em;
+    margin: 0 0 4mm;
+    padding-bottom: 2mm;
+    border-bottom: 1.2pt solid var(--accent);
+    string-set: chapter content(text);
+}
+
+/* Paged.js gives inserted blank pages the :left heads; hide them */
+.pagedjs_blank_page .pagedjs_margin-content { visibility: hidden; }
+
+/* Links into another volume of the set */
+a.xvol::after {
+    content: "\2009(Vol.\2009" attr(data-vol) ")";
+    font-family: var(--sans);
+    font-size: .78em;
+    color: var(--muted);
+}
+.cover .volume { font-family: var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 1.2em 0 0; }

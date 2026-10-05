@@ -1,0 +1,39 @@
+# Which wiki pages go into the book, and how it is laid out.
+# Pages are referenced by wiki page id (the .md filename without extension),
+# exactly like wiki links. Comment a line out to drop a page; reorder freely.
+
+title = "OrcaSlicer"
+subtitle = "Calibration Handbook"
+wiki = "../OrcaSlicer_WIKI"   # path to the wiki clone, relative to this file
+
+[layout]
+page = "A5"             # "A5" -> imposed 2-up on A4 sheets, "A4" -> 2-up on A3
+signature_sheets = 4    # sheets folded together per signature (4 sheets = 16 pages)
+duplex_flip = "short"   # match the printer's duplex setting: "short" or "long" edge
+chapter_start = "none"  # "none" = continue on the same page, "page" = next page, "right" = next right-hand page
+font_size = "8pt"  
+toc_depth = 2           # 1 = chapters only, 2 = chapters and their sections
+image_max = 0.26        # tallest a figure may be, as a fraction of the text block height
+# margins_mm = [12, 14, 17, 11]   # top, bottom, inner (spine), outer
+
+# A part with a title gets its own divider page. Omit title for a plain run of chapters.
+[[part]]
+title = "Before You Start"
+pages = [
+    "calibration_guide",
+]
+
+[[part]]
+title = "Calibration Tests"
+pages = [
+    "temp_calib",
+    "volumetric_speed_calib",
+    "pressure_advance_calib",
+    "adaptive_pressure_advance_calib",
+    "flow_ratio_calib",
+    "retraction_calib",
+    "tolerance_calib",
+    "cornering_calib",
+    "input_shaping_calib",
+    "vfa_calib",
+]

@@ -1,0 +1,83 @@
+# Volume 2 of the OrcaSlicer Wiki set. Generated from the mkdocs.yml nav; edit freely.
+# Links to pages in the other volumes print as (Vol. N).
+
+title = "OrcaSlicer"
+subtitle = "Print Settings"
+volume = 2
+wiki = "../../OrcaSlicer_WIKI"
+
+[layout]
+chapter_start = "fit"   # new page only when less than chapter_min_space of the page is left
+chapter_min_space = 0.33
+
+[[part]]
+title = "Quality"
+pages = [
+    "quality_settings_bridging",
+    "quality_settings_ironing",
+    "quality_settings_layer_height",
+    "quality_settings_line_width",
+    "quality_settings_overhangs",
+    "quality_settings_precision",
+    "quality_settings_seam",
+    "quality_settings_wall_and_surfaces",
+    "quality_settings_wall_generator",
+    "quality_settings_z_contouring",
+]
+
+[[part]]
+title = "Strength"
+pages = [
+    "strength_settings_infill",
+    "strength_settings_infill_rotation_template_metalanguage",
+    "strength_settings_patterns",
+    "strength_settings_patterns_quick_reference",
+    "strength_settings_top_bottom_shells",
+    "strength_settings_walls",
+    "strength_settings_advanced",
+]
+
+[[part]]
+title = "Speed"
+pages = [
+    "speed_settings_acceleration",
+    "speed_settings_initial_layer_speed",
+    "speed_settings_jerk_xy",
+    "speed_settings_overhang_speed",
+    "speed_settings_travel",
+    "speed_settings_advanced",
+    "speed_settings_other_layers_speed",
+]
+
+[[part]]
+title = "Support"
+pages = [
+    "support_settings_filament",
+    "support_settings_ironing",
+    "support_settings_raft",
+    "support_settings_support",
+    "support_settings_tree",
+    "support_settings_advanced",
+]
+
+[[part]]
+title = "Multimaterial"
+pages = [
+    "multimaterial_settings_filament_for_features",
+    "multimaterial_settings_flush_options",
+    "multimaterial_settings_ooze_prevention",
+    "multimaterial_settings_prime_tower",
+    "multimaterial_settings_advanced",
+]
+
+[[part]]
+title = "Others"
+pages = [
+    "others_settings_brim",
+    "others_settings_fuzzy_skin",
+    "others_settings_g_code_output",
+    "others_settings_notes",
+    "others_settings_post_processing_scripts",
+    "others_settings_skirt",
+    "others_settings_special_mode",
+]

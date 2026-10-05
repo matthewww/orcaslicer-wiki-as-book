@@ -1,0 +1,119 @@
+# Volume 1 of the OrcaSlicer Wiki set. Generated from the mkdocs.yml nav; edit freely.
+# Links to pages in the other volumes print as (Vol. N).
+
+title = "OrcaSlicer"
+subtitle = "Setup and Workflow"
+volume = 1
+wiki = "../../OrcaSlicer_WIKI"
+
+[layout]
+chapter_start = "fit"   # new page only when less than chapter_min_space of the page is left
+chapter_min_space = 0.33
+
+[[part]]
+title = "Guides"
+pages = [
+    "calibration_guide",
+    "how_to_download_pr_artifacts",
+    "mixed_nozzle_sizes",
+]
+
+[[part]]
+title = "General Settings"
+pages = [
+    "import_export",
+    "keyboard_shortcuts",
+    "option_mode",
+    "option_type",
+    "transfer_discard_changes",
+    "troubleshoot_center",
+]
+
+[[part]]
+title = "User Profiles"
+pages = [
+    "user_profiles",
+]
+
+[[part]]
+title = "Printer Settings"
+pages = [
+    "printer_basic_information_accessory",
+    "printer_basic_information_adaptive_bed_mesh",
+    "printer_basic_information_advanced",
+    "printer_basic_information_cooling_fan",
+    "printer_basic_information_extruder_clearance",
+    "printer_basic_information_printable_space",
+    "printer_extruder_basic_information",
+    "printer_extruder_retraction",
+    "printer_extruder_z_hop",
+    "printer_machine_gcode",
+    "printer_motion_ability",
+    "printer_multimaterial_semm_parameters",
+    "printer_multimaterial_setup",
+    "printer_multimaterial_wipe_tower",
+    "printer_multimaterial_advanced",
+]
+
+[[part]]
+title = "Material Settings"
+pages = [
+    "material_cooling",
+    "material_basic_information",
+    "material_flow_ratio_and_pressure_advance",
+    "material_temperatures",
+    "material_volumetric_speed_limitation",
+    "material_multimaterial",
+    "material_setting_overrides",
+    "material_advanced",
+    "material_dependencies",
+]
+
+[[part]]
+title = "Calibration"
+pages = [
+    "adaptive_pressure_advance_calib",
+    "cornering_calib",
+    "flow_ratio_calib",
+    "input_shaping_calib",
+    "pressure_advance_calib",
+    "retraction_calib",
+    "temp_calib",
+    "tolerance_calib",
+    "vfa_calib",
+    "volumetric_speed_calib",
+]
+
+[[part]]
+title = "Print Prepare"
+pages = [
+    "prepare_basic",
+    "prepare_assembly_tools",
+    "prepare_auto_arrange",
+    "prepare_auto_orient",
+    "prepare_brim_ears_painting",
+    "prepare_color_painting",
+    "prepare_cutting_tool",
+    "prepare_emboss",
+    "prepare_mesh_boolean",
+    "prepare_object_manipulation",
+    "prepare_object_set",
+    "prepare_paint_on_fuzzy_skin",
+    "prepare_precise_seam",
+    "prepare_seam_painting",
+    "prepare_stl_transformation",
+    "prepare_support_painting",
+    "prepare_texture_displacement",
+    "prepare_texture_displacement_pro",
+    "prepare_texture_displacement_uv_editor",
+    "prepare_variable_layer_height",
+]
+
+[[part]]
+title = "Design"
+pages = [
+    "design_tab",
+    "design_sketching",
+    "design_modeling_tools",
+    "design_keyboard_shortcuts",
+]

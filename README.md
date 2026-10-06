@@ -10,7 +10,7 @@ python -m venv .venv
 npm ci
 ```
 
-The build drives your installed Microsoft Edge through Playwright, so you don't need to download a browser.
+The build drives your Microsoft Edge through Playwright.
 
 ## Use
 

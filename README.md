@@ -10,7 +10,7 @@ python -m venv .venv
 npm ci
 ```
 
-The build drives your Microsoft Edge through Playwright.
+The build drives Microsoft Edge through Playwright.
 
 ## Use
 

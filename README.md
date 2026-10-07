@@ -1,6 +1,6 @@
 # Wiki Book Builder
 
-Turns a chosen set of OrcaSlicer Wiki pages into a printed, hand-bound book: A5 pages imposed two-up on A4 (or A4 on A3), double-sided, in folded signatures you can sew.
+Turns a chosen set of [OrcaSlicer Wiki pages](https://www.orcaslicer.com/wiki/) into a printed, hand-bound book: A5 pages imposed two-up on A4 (or A4 on A3), double-sided, in folded signatures you can sew.
 
 ## Setup (once)
 
